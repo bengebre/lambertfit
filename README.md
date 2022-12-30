@@ -46,7 +46,7 @@ rvmf_sb, rvnf_sb, fit_rms = fit(radecs,times,r_so)
 ```
 
 ## Results
-The ```rvmf_sb``` variable above yields the LambertFit orbit on the right.  The left orbit is the initial guess orbit that LambertFit starts with and refines.  The observations are equally spaced (in this instance) between the diamond and the circle.  The blue orbit is the earth.  The The green orbit is the true orbit of the body we're trying to find the orbit for.  The orange orbit is the LambertFit solution.  The reported RMS errors are in arc seconds.
+The blue orbit is the earth.  The The green orbit is the true orbit of the body we're trying to find the orbit for.  The orange orbit is the LambertFit solution.  The reported RMS errors are in arc seconds.  The ```rvmf_sb``` variable above yields the LambertFit orbit on the right.  The left orbit is the initial guess orbit that LambertFit starts with and refines.  The observations are equally spaced (in this instance) between the diamond and the circle.
 
 ![download](https://user-images.githubusercontent.com/882036/210093698-9225f7b0-753c-4d20-b5db-ebefd7308ad0.png)
 
