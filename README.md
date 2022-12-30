@@ -59,7 +59,7 @@ The blue orbit is the earth.  The The green orbit is the true orbit of the body 
 
 - LambertFit uses two body propagation around the solar system barycenter.  In my testing, trying to solve for observation durations greater than 90 days or so starts to be limited by the fidelity of the orbit propagator.
 - LambertFit requires that you choose two observations (endpoints) to solve around - by default the first and last observation.  More than any other observations, the quality of the orbit LambertFit finds is dependent on how good these two endpoint observations are.  The orbit is in a sense 'pinned' at these two endpoint observations and fit to the remaining observations.
-- LambertFit is slow.  I'm essentially using the dumbest implementation of gradient descent possible right now.
+- LambertFit is **slow**.  I'm essentially using the dumbest implementation of gradient descent possible right now.
 
 ## Acknowledgements
 - LambertFit uses [Poliastro](https://github.com/poliastro/poliastro) for both orbit propagation and for Lambert solving ([Izzo, 2014](https://arxiv.org/abs/1403.2705)).  It's an excellent astrodynamics package.
