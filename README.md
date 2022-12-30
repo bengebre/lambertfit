@@ -57,5 +57,5 @@ The ```rvmf_sb``` variable above yields the LambertFit orbit on the right.  The 
 - LambertFit is slow.  I'm essentially using the dumbest implementation of gradient descent possible right now.
 
 ## Acknowledgements
-- LambertFit uses [Poliastro](https://github.com/poliastro/poliastro) for both orbit propagation and for Lambert solving [Izzo 2014](https://arxiv.org/abs/1403.2705).  It's an excellent astrodynamics package.
-- While my approach is not the same as the authors, I did find the paper [Initial orbit determination methods for track-to-track association](https://www.sciencedirect.com/science/article/pii/S0273117721005287#n0010) very helpful for thinking about how to use a Lambert solver for initial orbit determination.
+- LambertFit uses [Poliastro](https://github.com/poliastro/poliastro) for both orbit propagation and for Lambert solving ([Izzo, 2014](https://arxiv.org/abs/1403.2705)).  It's an excellent astrodynamics package.
+- While my approach is not the same as the authors, I did find the paper [Initial orbit determination methods for track-to-track association](https://www.sciencedirect.com/science/article/pii/S0273117721005287#n0010) (Pastor et. al, 2021) very helpful for thinking about how to use a Lambert solver for initial orbit determination.
