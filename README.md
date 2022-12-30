@@ -13,8 +13,9 @@ LambertFit takes equitorial angular observations of solar system objects in righ
 pip install git+https://github.com/bengebre/lambertfit
 ```
 
-## Example usage (using simulated observations from Horizons)
+## Example usage
 
+#### Getting some simulated RA/DEC observations from Horizons
 ```python
 #define observer location and body to observe
 loc = 'G96' #MPC observatory location code (eg. 'G96' or '500@0')
@@ -32,12 +33,15 @@ tdbs = Time(times,format='jd').tdb.value #barycenter dynamical times
 #get simulated observation data from Horizons
 ephs = Horizons(id=body_id,location=loc,epochs=times,id_type='designation').ephemerides()
 radecs = np.array([[eph['RA'],eph['DEC']] for eph in ephs])
+```
 
+#### Orbit Determination via LambertFit
+```python
 #sun->observer position vector at observation times
 r_so = sun_observer(loc,tdbs)
 
 #OD fit from Lambert solutions for RA/DEC observations 
-#returns heliocentric vectors in the AU and km/s at the endpoints
+#returns heliocentric vectors in AU and km/s at the endpoints (defaults to first and last observations)
 rvmf_sb, rvnf_sb, fit_rms = fit(radecs,times,r_so)
 ```
 
@@ -53,5 +57,5 @@ The ```rvmf_sb``` variable above yields the LambertFit orbit on the right.  The 
 - LambertFit is slow.  I'm essentially using the dumbest implementation of gradient descent possible right now.
 
 ## Acknowledgements
-- Poliastro/Izzo
-- Paper?
+- LambertFit uses [Poliastro](https://github.com/poliastro/poliastro) for both orbit propagation and for Lambert (Izzo) solving.  It's an excellent astrodynamics package.
+- While my approach is not the same as the authors, I did find the paper [Initial orbit determination methods for track-to-track association](https://www.sciencedirect.com/science/article/pii/S0273117721005287#n0010) very helpful for thinking about how to use a Lambert solver for initial orbit determination.
