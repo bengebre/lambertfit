@@ -17,6 +17,11 @@ pip install git+https://github.com/bengebre/lambertfit
 
 #### Getting some simulated RA/DEC observations from Horizons
 ```python
+import numpy as np
+import lambertfit as lf
+from astroquery.jplhorizons import Horizons
+from astropy.time import Time
+
 #define observer location and body to observe
 loc = 'G96' #MPC observatory location code (eg. 'G96' or '500@0')
 body_id = '2000002' #small body designation (e.g. '2000002' == Pallas)
@@ -38,11 +43,11 @@ radecs = np.array([[eph['RA'],eph['DEC']] for eph in ephs])
 #### Orbit Determination via LambertFit
 ```python
 #sun->observer position vector at observation times
-r_so = sun_observer(loc,tdbs)
+r_so = lf.sun_observer(loc,tdbs)
 
 #OD fit from Lambert solutions for RA/DEC observations 
 #returns heliocentric vectors in AU and km/s at the endpoints (defaults to first and last observations)
-rvmf_sb, rvnf_sb, fit_rms = fit(radecs,times,r_so)
+rvmf_sb, rvnf_sb, fit_rms = lf.fit(radecs,times,r_so)
 ```
 
 ## Results
