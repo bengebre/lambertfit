@@ -1,5 +1,5 @@
 # LambertFit
-A Python-based angles-only initial orbit determination tool for solar system objects using a Lambert solver.
+A Python-based angles-only initial orbit determination tool for solar system objects via Lambert solver.
 
 ## About
 LambertFit takes equitorial angular observations of solar system objects in right ascension and declination and finds an orbit that minimizes the  RMS residuals.  As the name implies, LambertFit leverages the solution to [Lambert's problem](https://en.wikipedia.org/wiki/Lambert%27s_problem) to fit the orbit.  The conceptual outline of the OD process is as follows:
