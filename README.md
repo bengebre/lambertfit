@@ -2,7 +2,7 @@
 A Python-based angles-only initial orbit determination tool for solar system objects using a Lambert solver.
 
 ## About
-LambertFit takes equitorial angular observations in right ascension and declination of solar system objects and finds an orbit that minimizes the observation residuals.  As the name implies, LambertFit leverages the solution to Lambert's problem to fit the orbit.  The conceptual outline of the OD process is as follows:
+LambertFit takes equitorial angular observations of solar system objects in right ascension and declination and finds an orbit that minimizes the  residuals.  As the name implies, LambertFit leverages the solution to Lambert's problem to fit the orbit.  The conceptual outline of the OD process is as follows:
 
 1. Lambert solve an initial orbit between two observations (*endpoints*: e.g. the first and the last observation) by guessing a number of constant, scalar heliocentric ranges at the two endpoints.
 2. Take the Lambert solution for the singular heliocentric range guess that yields the best (i.e. smallest) residuals as your starting orbit.
@@ -48,6 +48,6 @@ The ```rvmf_sb``` variable above yields the LambertFit orbit on the right.  The 
 
 ## Caveats, Limitations and Todos
 
-- LambertFit uses two body propagation around the solar system barycenter.  In my testing, trying to solve for observation durations greater than 90 days or so starts to be limited by the fidelity of the orbit propagation.
+- LambertFit uses two body propagation around the solar system barycenter.  In my testing, trying to solve for observation durations greater than 90 days or so starts to be limited by the fidelity of the orbit propagator.
 - LambertFit requires that you choose two observations (endpoints) to solve around - by default the first and last observation.  More than any other observations, the quality of the orbit LambertFit finds is dependent on how good these two endpoint observations are.  The orbit is in a sense 'pinned' at these two endpoint observations and fit to the remaining observations.
 - LambertFit is slow.  I'm essentially using the dumbest implementation of gradient descent possible right now.
