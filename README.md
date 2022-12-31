@@ -7,7 +7,7 @@ An experimental Python-based angles-only initial orbit determination tool for so
 
 LambertFit takes equitorial angular observations of solar system objects in right ascension and declination and finds an orbit that minimizes the  RMS residuals.  As the name implies, LambertFit leverages the solution to [Lambert's problem](https://en.wikipedia.org/wiki/Lambert%27s_problem) to fit the orbit.  The conceptual outline of the orbit determination process is as follows:
 
-1. Lambert solve an initial orbit between two observations *endpoints* (e.g. the first and the last observation) by [guessing a number of constant, scalar heliocentric ranges](https://www.benengebreth.org/dynamic-sky/geocentric-to-heliocentric/) at those two endpoints.
+1. Lambert solve an initial orbit between two observation *endpoints* (e.g. the first and the last observation) by [guessing a number of constant, scalar heliocentric ranges](https://www.benengebreth.org/dynamic-sky/geocentric-to-heliocentric/) at those two endpoints.
 2. Take the Lambert solution for the singular heliocentric range guess that yields the best (i.e. smallest) residuals as your starting orbit.
 3. Update each endpoint range estimate, one at a time, by stepping in the direction that reduces the residuals as measured by the RMS error until the  residuals stop getting smaller.
 
