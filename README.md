@@ -48,7 +48,7 @@ radecs = np.array([[eph['RA'],eph['DEC']] for eph in ephs]) #RA and DEC in degre
 #sun->observer position vector at observation times
 r_so = lf.sun_observer(loc,tdbs)
 
-#LambertFit OD solution for RA/DEC observations
+#LambertFit OD solution for RA/DEC observations (sun->body)
 rvm_sb, rvn_sb, fit_rms = lf.fit(radecs,times,r_so)
 ```
 
