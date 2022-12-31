@@ -328,7 +328,8 @@ def fit(radecs,times,r_so,pts=[0,-1],rg=None,tol=1e-5,max_iter=100000,min_rms=0.
         #break out of loop conditions; try to increase step size
         if i%10==0:
 
-            print("RMS: {:.5f} arcsec; Step: {:,.0f} km          ".format(current_rms,step*aukm),end='\r')
+            ts = (time.time() - fit_start)
+            print("RMS: {:.5f} arcsec; Step: {:,.0f} km; {:.2f}s          ".format(current_rms,step*aukm,ts),end='\r')
 
             if (i >= max_iter):
                 print("\nStopped: {:d} iterations reached".format(i),end='\r')
@@ -355,7 +356,7 @@ def fit(radecs,times,r_so,pts=[0,-1],rg=None,tol=1e-5,max_iter=100000,min_rms=0.
     rv0g = np.concatenate((r0g,v0.value))
     rvng = np.concatenate((rng,vn.value))
 
-    print("\n{:.2f}s".format((time.time() - fit_start)))
+    print("RMS: {:.5f} arcsec; Step: {:,.0f} km; {:.2f}s; Done          ".format(current_rms,step*aukm,ts))
 
     return (rv0g,rvng,current_rms)
 
