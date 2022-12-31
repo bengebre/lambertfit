@@ -191,6 +191,17 @@ def calc_residuals(rv,time,ru_ob,times,r_so):
           
     return np.rad2deg(residuals)
 
+def lambert(*args, **kwargs):
+    """
+    Wraps Poliastro's izzo.lambert() to handle an interface change.
+    """
+    if poli_version=='0.16.0':
+        (v0, vn), = izzo.lambert(*args, **kwargs)
+    else:
+        (v0, vn) = izzo.lambert(*args, **kwargs)
+
+    return v0, vn
+
 def fit(radecs,times,r_so,pts=[0,-1],rg=None,tol=1e-5,max_iter=100000,min_rms=0.001):
     """
     Fit an orbit to a set of observations in RA and DEC (radec) at times (times) and observer positions (r_so)
