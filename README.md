@@ -9,7 +9,7 @@ LambertFit takes equitorial angular observations of solar system objects in righ
 
 1. Lambert solve an initial orbit between two observation *endpoints* (e.g. the first and the last observation) by [guessing a number of constant, scalar heliocentric ranges](https://www.benengebreth.org/dynamic-sky/geocentric-to-heliocentric/) at those two endpoints.
 2. Take the Lambert solution for the singular heliocentric range guess that yields the best (i.e. smallest) residuals as your starting orbit.
-3. Update each endpoint range estimate, one at a time, by stepping in the direction that reduces the residuals as measured by the RMS error until the  residuals stop getting smaller.
+3. Update each endpoint range estimate, one at a time, by stepping in the direction that reduces the residuals (as measured by the RMS error) until the  residuals stop getting smaller.
 
 ## Installation
 ```
