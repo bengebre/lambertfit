@@ -49,7 +49,6 @@ radecs = np.array([[eph['RA'],eph['DEC']] for eph in ephs])
 r_so = lf.sun_observer(loc,tdbs)
 
 #OD fit from Lambert solutions for RA/DEC observations 
-#returns heliocentric vectors in AU and km/s at the endpoints (defaults to first and last observations)
 rvmf_sb, rvnf_sb, fit_rms = lf.fit(radecs,times,r_so)
 ```
 
