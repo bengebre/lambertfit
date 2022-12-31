@@ -1,10 +1,12 @@
-# LambertFit
-A Python-based angles-only initial orbit determination tool for solar system objects via Lambert solver.
+
+# LambertFit <img width="50" style="position:relative; top: 17px;" src="https://user-images.githubusercontent.com/882036/210147708-d5ef406a-ff67-4138-8747-4eb6105973ac.gif">
+An experimental Python-based angles-only initial orbit determination tool for solar system objects via Lambert solver.
 
 ## About
+
 LambertFit takes equitorial angular observations of solar system objects in right ascension and declination and finds an orbit that minimizes the  RMS residuals.  As the name implies, LambertFit leverages the solution to [Lambert's problem](https://en.wikipedia.org/wiki/Lambert%27s_problem) to fit the orbit.  The conceptual outline of the OD process is as follows:
 
-1. Lambert solve an initial orbit between two observations (*endpoints*: e.g. the first and the last observation) by guessing a number of constant, scalar heliocentric ranges at the two endpoints.
+1. Lambert solve an initial orbit between two observations (*endpoints*: e.g. the first and the last observation) by [guessing a number of constant, scalar heliocentric ranges](https://www.benengebreth.org/dynamic-sky/geocentric-to-heliocentric/) at the two endpoints.
 2. Take the Lambert solution for the singular heliocentric range guess that yields the best (i.e. smallest) residuals as your starting orbit.
 3. Update each endpoint range estimate, one at a time, by stepping in the direction that reduces the residuals as measured by the RMS error until the orbit residuals stop getting smaller.
 
@@ -59,7 +61,7 @@ The blue orbit is the earth.  The The green orbit is the true orbit of the body 
 
 - LambertFit uses two body propagation around the solar system barycenter.  In my testing, trying to solve for observation durations greater than 90 days or so starts to be limited by the fidelity of the orbit propagator.
 - LambertFit requires that you choose two observations (endpoints) to solve around - by default the first and last observation.  More than any other observations, the quality of the orbit LambertFit finds is dependent on how good these two endpoint observations are.  The orbit is in a sense 'pinned' at these two endpoint observations and fit to the remaining observations.
-- LambertFit is **slow**.  I'm essentially using the dumbest implementation of gradient descent possible right now.
+- LambertFit is **slow**.  I'm essentially using the dumbest implementation of gradient descent possible right now.  I'm optimistic that there is room for improvement here.
 
 ## Acknowledgements
 - LambertFit uses [Poliastro](https://github.com/poliastro/poliastro) for both orbit propagation and for Lambert solving ([Izzo, 2014](https://arxiv.org/abs/1403.2705)).  It's an excellent astrodynamics package.
