@@ -18,7 +18,7 @@ pip install git+https://github.com/bengebre/lambertfit
 
 ## Example usage
 
-#### Getting some simulated RA/DEC observations from [JPL Horizons](https://ssd.jpl.nasa.gov/horizons/app.html)
+#### Get some simulated RA/DEC observations from [JPL Horizons](https://ssd.jpl.nasa.gov/horizons/app.html)
 ```python
 import numpy as np
 import lambertfit as lf
