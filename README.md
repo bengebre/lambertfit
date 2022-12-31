@@ -55,7 +55,7 @@ rvmf_sb, rvnf_sb, fit_rms = lf.fit(radecs,times,r_so)
 Note: ```rvmf_sb``` and ```rvnf_sb``` are heliocentric position and velocity vectors of the LambertFit solution with units of **AU** and **km/s** at the endpoints (the first and last observation by default).  ```fit_rms``` is the final RMS error of the orbit fit in arc seconds.
 
 ## Results
-The blue orbit is the earth.  The green orbit is the true orbit of the body we're trying to fit an orbit to (Pallas in this example).  The orange orbit is the LambertFit solution.  The reported RMS errors are in arc seconds.  The ```rvmf_sb``` variable above yields the LambertFit solution orbit in orange on the right.  The left orange orbit is the initial guess orbit that LambertFit starts with (generated internally by LambertFit) and then refines.  The observations are equally spaced in this instance between the diamond (the start) and the circle (the end).
+The blue orbit is the earth.  In green is the true orbit of the body we're trying to fit an orbit to (Pallas in this example).  The orange orbit is the LambertFit solution.  The reported RMS errors are in arc seconds.  The ```rvmf_sb``` variable above yields the LambertFit solution orbit in orange on the right.  The left orange orbit is the initial guess orbit that LambertFit starts with (generated internally by LambertFit) and then refines.  The observations are equally spaced in this instance between the diamond (the start) and the circle (the end).
 
 ![download](https://user-images.githubusercontent.com/882036/210093698-9225f7b0-753c-4d20-b5db-ebefd7308ad0.png)
 
