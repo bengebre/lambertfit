@@ -35,12 +35,12 @@ dt = 14 #number of days of observations
 nobs = 30 #number of observations
 
 #observation times
-times = np.linspace(tstart,tstart+dt,nobs) #observation times
-tdbs = Time(times,format='jd').tdb.value #barycenter dynamical times
+times = np.linspace(tstart,tstart+dt,nobs) #julian date observation times
+tdbs = Time(times,format='jd').tdb.value #barycenter dynamical times for the observations
 
 #get simulated observation data from Horizons
 ephs = Horizons(id=body_id,location=loc,epochs=times,id_type='designation').ephemerides()
-radecs = np.array([[eph['RA'],eph['DEC']] for eph in ephs])
+radecs = np.array([[eph['RA'],eph['DEC']] for eph in ephs]) #RA and DEC in degrees
 ```
 
 #### Orbit Determination via LambertFit
@@ -51,6 +51,8 @@ r_so = lf.sun_observer(loc,tdbs)
 #OD fit from Lambert solutions for RA/DEC observations 
 rvmf_sb, rvnf_sb, fit_rms = lf.fit(radecs,times,r_so)
 ```
+
+Note: ```rvmf_sb``` and ```rvnf_sb``` are position and velocity vectors with units of **AU** and **km/s** of the LambertFit solution at the endpoints (the first and last observation by default).  ```fit_rms``` is the final RMS error of the orbit fit in arc seconds.
 
 ## Results
 The blue orbit is the earth.  The The green orbit is the true orbit of the body we're trying to fit an orbit to (Pallas in this example).  The orange orbit is the LambertFit solution.  The reported RMS errors are in arc seconds.  The ```rvmf_sb``` variable above yields the LambertFit solution orbit in orange on the right.  The left orange orbit is the initial guess orbit that LambertFit starts with (generated internally by LambertFit) and then refines.  The observations are equally spaced in this instance between the diamond (the start) and the circle (the end).
