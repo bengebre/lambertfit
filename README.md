@@ -1,7 +1,7 @@
 
 # LambertFit <img width="50" style="position:relative; top: 17px;" src="https://user-images.githubusercontent.com/882036/210149703-cc463438-7562-47c4-99d7-08aab9424648.gif">
 
-An experimental Python-based angles-only initial orbit determination tool for solar system objects via Lambert solver.
+An experimental Python-based angles-only initial orbit determination tool for solar system objects by way of a Lambert solver.
 
 ## About
 
