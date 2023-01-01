@@ -75,7 +75,7 @@ def circular_lfit(radecs,times,r_so,pts=[0,-1],rgs=None,max_ecc=0.9):
     """
     
     #some definitions and inits
-    aukm = (1*u.AU).to('km').value #km/AU
+    aukm = 149597870.7 #km/1AU
     mu = Sun.k.to((u.km**3)/u.s**2).value #km^3/s^2
     rmses = []
     rv0s = []
