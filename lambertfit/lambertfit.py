@@ -48,9 +48,9 @@ def rmse(arr):
     """
     return np.sqrt(np.mean(arr**2))
 
-def circular_lfit(radecs,times,r_so,pts=[0,-1],rgs=None,max_ecc=0.9):
+def circular_lfit(radecs,times,r_so,pts=[0,-1],rgs=[],max_ecc=0.1):
     """
-    Calculate the circular orbit that has the lowest RMS error for the observations.  Used as an initial guess 
+    Calculate the circular(ish) orbit that has the lowest RMS error for the observations.  Used as an initial guess 
     for Lambert fitting.
     
     Parameters
@@ -61,8 +61,12 @@ def circular_lfit(radecs,times,r_so,pts=[0,-1],rgs=None,max_ecc=0.9):
         N length array of observation times.
     r_so : numpy.ndarray
         Nx3 array of position vectors in the equitorial plane pointing from the Sun to the observer location.
-    pts : array-like
-        The two indicies of the observations to fit around [m,n].
+    pts : array-like, optional
+        The two indicies of the observation enpoints to fit around [m,n].
+    rgs : array-like, optional
+        Range guesses for the fit in AU.
+    max_ecc : float, optional
+        Maximum eccentricity to allow in Lambert fit.
         
     Returns
     -------
@@ -76,12 +80,11 @@ def circular_lfit(radecs,times,r_so,pts=[0,-1],rgs=None,max_ecc=0.9):
     
     #some definitions and inits
     aukm = 149597870.7 #km/1AU
-    mu = Sun.k.to((u.km**3)/u.s**2).value #km^3/s^2
     rmses = []
     rv0s = []
     rv1s = []
     
-    if rgs==None:
+    if len(rgs)==0:
         rgs = np.concatenate((np.arange(1.1,6,0.1),np.arange(6,101,1)))
     
     #observer->object equitorial unit vectors from radecs
@@ -215,8 +218,8 @@ def fit(radecs,times,r_so,pts=[0,-1],rg=None,tol=1e-5,max_iter=100000,min_rms=0.
         N length array of observation times.
     r_so : numpy.ndarray
         Nx3 array of position vectors in the equitorial plane pointing from the Sun to the observer location.
-    pts : array-like
-        The two indicies of the observations to fit around [m,n].
+    pts : array-like, optional
+        The two indicies of the observation endpoints to fit around [m,n].
     rg : float, optional
         Initial range guess in AU.
     tol : float, optional
