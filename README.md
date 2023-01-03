@@ -54,6 +54,14 @@ rvm_sb, rvn_sb, fit_rms = lf.fit(radecs,times,r_so)
 
 Note: ```rvm_sb``` and ```rvn_sb``` are heliocentric position and velocity vectors of the LambertFit solution with units of **AU** and **km/s** at the endpoints (the first and last observation by default).  ```fit_rms``` is the final RMS error of the orbit fit in arc seconds.
 
+#### Useful optional arguments for fit()
+LambertFit can be quite slow to converge.  By default it stops solving when the step size reaches 100km.  To prevent LamberFit from running for a half an hour while it chips away at that 5th decimal place of RMS, you can use the following optional arguments on the ```fit()``` function:
+
+- ```tol```: The minimum improvement tolerance (in arc seconds) at which the solver stops solving.  Default: 1e-5
+- ```max_iter```: The maximum number of iterations the solver will attempt.  Default: 100,000
+- ```min_rms```: When the solver achieves this RMS threshold it will stop.  Default: 0.001
+
+
 ## Results
 The blue orbit is the earth.  In green is the true orbit of the body we're trying to fit an orbit to (Pallas in this example).  The left orange orbit is the initial guess orbit that LambertFit starts with (generated internally by LambertFit) and then refines.  The ```rvmf_sb``` variable above yields the LambertFit solution orbit in orange on the right.  The reported RMS errors are in arc seconds.  The observations are equally spaced in this instance between the diamond (the first) and the circle (the last).
 
