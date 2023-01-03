@@ -57,7 +57,7 @@ Note: ```rvm_sb``` and ```rvn_sb``` are heliocentric position and velocity vecto
 ## Results
 The blue orbit is the earth.  In green is the true orbit of the body we're trying to fit an orbit to (Pallas in this example).  The left orange orbit is the initial guess orbit that LambertFit starts with (generated internally by LambertFit) and then refines.  The ```rvmf_sb``` variable above yields the LambertFit solution orbit in orange on the right.  The reported RMS errors are in arc seconds.  The observations are equally spaced in this instance between the diamond (the first) and the circle (the last).
 
-![download](https://user-images.githubusercontent.com/882036/210093698-9225f7b0-753c-4d20-b5db-ebefd7308ad0.png)
+![g2000002-14](https://user-images.githubusercontent.com/882036/210381251-28d71174-8db7-4a4c-a878-08a6427cbb23.png)
 
 ## Caveats, Limitations and Todos
 
