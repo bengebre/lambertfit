@@ -251,8 +251,12 @@ def fit(radecs,times,r_so,pts=[0,-1],rg=None,tol=1e-5,max_iter=100000,min_rms=0.
     signn = [1,-1] #stepn direction
 
     if rg==None:
-        #guess best fit circular starting orbit
-        rvmg_sb, rvng_sb, rvg_rms = circular_lfit(radecs,times,r_so,pts=pts)
+        #guess best fit circular(ish) starting orbit
+        max_ecc = 0.1
+        rvg_rms = 1e5
+        while rvg_rms >= 1e5 and max_ecc <= 0.9:
+            rvmg_sb, rvng_sb, rvg_rms = circular_lfit(radecs,times,r_so,pts=pts,max_ecc=max_ecc)
+            max_ecc+=0.1
         start_range = LA.norm(rvng_sb[0:3])
     else:
         start_range = rg
