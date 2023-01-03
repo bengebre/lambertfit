@@ -57,7 +57,7 @@ Note: ```rvm_sb``` and ```rvn_sb``` are heliocentric position and velocity vecto
 #### Useful optional arguments for fit()
 LambertFit can be quite slow to converge.  By default it stops solving when the step size reaches 100km.  To prevent LamberFit from running for a half an hour while it chips away at that 5th decimal place of RMS, you can use the following optional arguments on the ```fit()``` function:
 
-- ```tol```: The minimum improvement tolerance (in arc seconds) at which the solver stops solving.  Default: 1e-5
+- ```tol```: The minimum improvement (in arc seconds) at which the solver stops solving.  Default: 1e-5
 - ```max_iter```: The maximum number of iterations the solver will attempt.  Default: 100,000
 - ```min_rms```: When the solver achieves this RMS threshold it will stop.  Default: 0.001
 
