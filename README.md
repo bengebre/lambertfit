@@ -61,9 +61,11 @@ LambertFit can be quite slow to converge.  By default it stops solving when the 
 - ```max_iter```: The maximum number of iterations the solver will attempt.  Default: 100,000
 - ```min_rms```: When the solver achieves this RMS threshold it will stop.  Default: 0.001
 
+To specify different endpoints to fit around than the first and last observations:
+- ```pts```: The indicies of the observation endpoints that will be fit around.  Default: [0,-1] 
 
 ## Results
-The blue orbit is the earth.  In green is the true orbit of the body we're trying to fit an orbit to (Pallas in this example).  The left orange orbit is the initial guess orbit that LambertFit starts with (generated internally by LambertFit) and then refines.  The ```rvmf_sb``` variable above yields the LambertFit solution orbit in orange on the right.  The reported RMS errors are in arc seconds.  The observations are equally spaced in this instance between the diamond (the first) and the circle (the last).
+The blue orbit is the earth. The true orbit of the body we're trying to fit an orbit to in green. The left orange orbit is the initial guess orbit that LambertFit starts with (generated internally by LambertFit) and then refines. The LambertFit solution orbit is in orange on the right. The observations from JPL are equally spaced in time between the green diamond (the first) and the green circle (the last).  The diamond and circle on the blue orbit represent the earth's position at the starting and ending observation times.  The diamond and circle on the orange orbit represent LambertFit's estimate of the position of the solar system object at the starting and ending observation times. The reported RMS errors are in arc seconds.
 
 ![g2000002-14](https://user-images.githubusercontent.com/882036/210381251-28d71174-8db7-4a4c-a878-08a6427cbb23.png)
 
