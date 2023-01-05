@@ -11,6 +11,8 @@ LambertFit takes equatorial angular observations of solar system objects in righ
 2. Take the Lambert solution for the singular heliocentric range guess that yields the best (i.e. smallest) residuals as your starting orbit.
 3. Update each endpoint range estimate, one at a time, by stepping in the direction that reduces the residuals (as measured by the RMS error) until the  residuals stop getting smaller.
 
+There's a little [more LambertFit detail on my website](https://www.benengebreth.org/dynamic-sky/lambertfit-orbit-determination/) including plots for solves for the first 99 numbered objects for various observation durations and counts.
+
 ## Installation
 ```
 pip install git+https://github.com/bengebre/lambertfit
