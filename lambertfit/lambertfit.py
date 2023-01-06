@@ -6,12 +6,10 @@ from astroquery.jplhorizons import Horizons
 from astropy import units as u
 from astropy.time import Time
 from poliastro import __version__ as poli_version
-#from poliastro.twobody.propagation import cowell
 from poliastro.frames import Planes
 from poliastro.iod import izzo
 from poliastro.bodies import Sun
 from poliastro.twobody import Orbit
-from poliastro.plotting import StaticOrbitPlotter
 
 def angle_between(u1,u2):
     """
@@ -118,8 +116,7 @@ def circular_lfit(radecs,times,r_so,pts=[0,-1],rgs=[],max_ecc=0.1):
         rv1 = np.concatenate((r1,vn.value))
 
         try:
-            rms = 3600*rmse(calc_residuals(rv1,times[n],ru_ob,times,r_so)) #*orb.ecc.value**2
-            #print(rg,rms,orb.ecc,rms*orb.ecc**2)
+            rms = 3600*rmse(calc_residuals(rv1,times[n],ru_ob,times,r_so))
 
             rmses.append(rms)
             rv0s.append(rv0)
