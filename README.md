@@ -18,6 +18,15 @@ There's a little [more LambertFit detail on my website](https://www.benengebreth
 pip install git+https://github.com/bengebre/lambertfit
 ```
 
+## Requirements
+I've tested the ``pip install`` method above with recent [Anaconda](https://www.anaconda.com/) installs, but if you're having issues, this is the environment LambertFit was developed and tested in.
+
+- python=3.8.8
+- numpy=1.20.1
+- astroquery=0.4.3
+- astropy=4.2.1
+- poliastro=[0.16.0,0.17.0]
+
 ## Example usage
 
 #### Get simulated RA/DEC observations from [JPL Horizons](https://ssd.jpl.nasa.gov/horizons/app.html)
