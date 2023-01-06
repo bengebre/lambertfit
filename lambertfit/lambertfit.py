@@ -6,7 +6,6 @@ from astroquery.jplhorizons import Horizons
 from astropy import units as u
 from astropy.time import Time
 from poliastro import __version__ as poli_version
-from poliastro.frames import Planes
 from poliastro.iod import izzo
 from poliastro.bodies import Sun
 from poliastro.twobody import Orbit
